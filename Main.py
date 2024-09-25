@@ -22,14 +22,14 @@ def convert_currency():
             response = requests.get(url)
             data = response.json()
             conversion_rate = float(data[coin_id][to_currency.lower()])
-        # if not a crypto currency at all, then the code knows it is a normal currency where it will use a different API
+        # if not a crypto currency at all, then the code knows it is a paper currency where it will use a different API
         else:
             # using CurrencyAPI for normal currencies
             # MY API key! (need to insert into url for the api to work)
             api_key = "cur_live_JoAYP3cikvSakrfdX5xBlvKv7OZ9Yy25O3mNcE0a"
             url = f"https://api.currencyapi.com/v3/latest?apikey={api_key}&currencies={to_currency}&base_currency={from_currency}"
         # connect the internet and the code to work together (using the imported "requests")
-            response = requests.get(url)
+            response = requests.get(url) 
             data = response.json()
             conversion_rate = float(data['data'][to_currency]['value'])
 
